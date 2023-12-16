@@ -1,5 +1,5 @@
-import {Menu} from "../../components/Menu";
+import {MainMenu} from "../../components/Menu";
 
 export const Root = () => {
-    return <><Menu/></>
+    return <><MainMenu/></>
 }
