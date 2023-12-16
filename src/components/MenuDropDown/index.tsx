@@ -1,5 +1,6 @@
 import { Button, Link, Menu, MenuItem } from "@mui/material";
 import { useState } from "react";
+import { Link as RouterLink } from "react-router-dom";
 
 export interface DropDownList {
   name: string;
@@ -41,7 +42,11 @@ export function MenuDropDown({ name, list }: Props) {
           onMouseLeave={handleClose}
         >
           {list?.map((item) => (
-            <Link underline="none" href={`categories/${item.link}`}>
+            <Link
+              component={RouterLink}
+              to={`categories/${item.link}`}
+              underline="none"
+            >
               <MenuItem onClick={handleClose}>{item.name}</MenuItem>
             </Link>
           ))}

@@ -5,6 +5,7 @@ import { getCategories } from "../Categories/api/getCategories.ts";
 import { useDispatch } from "react-redux";
 import { CATEGORIES_ACTIONS } from "../Categories/store/categories.slice.ts";
 import { DropDownList, MenuDropDown } from "../MenuDropDown";
+import { Link as RouterLink } from "react-router-dom";
 
 export const MainMenu = () => {
   const dispatch = useDispatch();
@@ -27,14 +28,18 @@ export const MainMenu = () => {
   return (
     <div className="menu">
       <Grid container gap="10px">
-        <Link color="#ff1248" underline="none" href="/">
+        <Link component={RouterLink} to="/" underline="none" color="red">
           <Typography>Anime Libary</Typography>
         </Link>
 
         <MenuDropDown name="Categories" list={categories} />
 
-        <Button href="anime">Anime</Button>
-        <Button href="manga">Manga</Button>
+        <Button component={RouterLink} to="/anime">
+          Anime
+        </Button>
+        <Button component={RouterLink} to="/manga">
+          Manga
+        </Button>
       </Grid>
     </div>
   );
