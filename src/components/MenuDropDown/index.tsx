@@ -44,8 +44,9 @@ export function MenuDropDown({ name, list }: Props) {
           {list?.map((item) => (
             <Link
               component={RouterLink}
-              to={`categories/${item.link}`}
+              to={`/categories/${item.link}`}
               underline="none"
+              key={item.link}
             >
               <MenuItem onClick={handleClose}>{item.name}</MenuItem>
             </Link>

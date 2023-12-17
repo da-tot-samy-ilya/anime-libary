@@ -8,7 +8,7 @@ export interface Manga {
     slug: string;
     description: string;
     canonicalTitle: string;
-    averageRating: string;
+    averageRating: number;
     startDate: string;
     endDate: string;
     posterImage: {

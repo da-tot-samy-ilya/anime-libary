@@ -1,8 +1,8 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { Category } from "../api/getCategories.ts";
+import { SmallCategory } from "../api/getCategories.ts";
 
 export interface Categories {
-  list: Category[] | null;
+  list: SmallCategory[] | null;
 }
 
 const initialState: Categories = {
@@ -13,7 +13,7 @@ export const categoriesSlice = createSlice({
   name: "categoriesSlice",
   initialState,
   reducers: {
-    setList: (state, action: PayloadAction<Category[]>) => {
+    setList: (state, action: PayloadAction<SmallCategory[]>) => {
       state.list = action.payload;
     },
   },

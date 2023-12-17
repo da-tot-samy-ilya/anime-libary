@@ -13,10 +13,10 @@ export const Manga = () => {
   const isLoading = useSelector(selectIsLoading);
   const [position, setPosition] = useState(0);
   const loadMoreManga = async () => {
-    setPosition(position + 10);
+    setPosition(position + 20);
     dispatch(MANGAS_ACTIONS.setIsLoading(true));
 
-    const data = await getManga(10, position);
+    const data = await getManga(20, position);
     dispatch(MANGAS_ACTIONS.setIsLoading(false));
 
     dispatch(
@@ -27,7 +27,7 @@ export const Manga = () => {
   useEffect(() => {
     const getData = async () => {
       dispatch(MANGAS_ACTIONS.setIsLoading(true));
-      const data = await getManga(10, 0);
+      const data = await getManga(20, 0);
       dispatch(MANGAS_ACTIONS.setList(data.data));
       dispatch(MANGAS_ACTIONS.setIsLoading(false));
     };
@@ -39,7 +39,7 @@ export const Manga = () => {
       <MainMenu />
       <div className="content" style={{ padding: "15px" }}>
         <Grid container spacing={2} columns={4}>
-          {mangas?.map((manga) => <MangaCard manga={manga} />)}
+          {mangas?.map((manga) => <MangaCard key={manga.id} manga={manga} />)}
         </Grid>
 
         {isLoading ? (

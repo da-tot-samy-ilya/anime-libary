@@ -14,11 +14,11 @@ export const MainMenu = () => {
   useEffect(() => {
     const getData = async () => {
       const categories = await getCategories();
-      dispatch(CATEGORIES_ACTIONS.setList(categories.data));
+      dispatch(CATEGORIES_ACTIONS.setList(categories.data.categories.edges));
 
       setCategories(
-        categories.data.map((el) => {
-          return { name: el.attributes.title, link: String(el.id) };
+        categories.data.categories.edges.map((el) => {
+          return { name: el.node.title.en, link: String(el.node.id) };
         }),
       );
     };
