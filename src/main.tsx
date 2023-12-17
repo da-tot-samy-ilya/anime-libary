@@ -9,6 +9,7 @@ import { Provider } from "react-redux";
 import { store } from "./app/store.ts";
 import { Anime } from "./components/Anime";
 import { Manga } from "./components/Manga";
+import { MangaPage } from "./components/MangaPage";
 
 const router = createBrowserRouter([
   {
@@ -19,6 +20,7 @@ const router = createBrowserRouter([
   { path: "/categories", element: <Categories /> },
   { path: "/anime", element: <Anime /> },
   { path: "/manga", element: <Manga /> },
+  { path: "/manga/:id", element: <MangaPage /> },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
